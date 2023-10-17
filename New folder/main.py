@@ -18,7 +18,7 @@ account_id = "101-001-27146548-004"
 symbol = 'EUR_USD'  # Forex currency pair
 short_period = 10  # Short-term moving average period
 long_period = 30   # Long-term moving average period
-order_size = 1000  # Trade size in the base currency
+order_size = 400  # Trade size in the base currency
 
 # Function to get historical OHLCV data
 def fetch_ohlcv(symbol, timeframe, count):
