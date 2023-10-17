@@ -6,19 +6,19 @@ import oandapyV20.endpoints.instruments as instruments
 import requests
 
 # OANDA API key
-api_key = "2fe596b429d817e4a31428f061742160-bb1502b27115bd13f09b3d96af3c3879"
+api_key = "a29f449ec75cb7790f8af739ddd1d328-62a6426f2d2bf8e38d68a8d1f759e2d0"
 
 # Initialize the OANDA API client
 api = API(environment="practice", access_token=api_key)  # Use "live" for real trading
 
 # Define your OANDA account ID
-account_id = "101-001-27146548-003"
+account_id = "101-001-27146548-004"
 
 # Define trading parameters
 symbol = 'EUR_USD'  # Forex currency pair
 short_period = 10  # Short-term moving average period
 long_period = 30   # Long-term moving average period
-order_size = 10000  # Trade size in the base currency
+order_size = 10  # Trade size in the base currency
 
 # Function to get historical OHLCV data
 def fetch_ohlcv(symbol, timeframe, count):
