@@ -6,19 +6,19 @@ import oandapyV20.endpoints.instruments as instruments
 import requests
 
 # OANDA API key
-api_key = "54269dec40d8a5656d58e6935a81a3ed-429acacc0ab5c44bfa7d0cc1f609cc22"
+api_key = "2fe596b429d817e4a31428f061742160-bb1502b27115bd13f09b3d96af3c3879"
 
 # Initialize the OANDA API client
 api = API(environment="practice", access_token=api_key)  # Use "live" for real trading
 
 # Define your OANDA account ID
-account_id = "101-001-27146548-001"
+account_id = "101-001-27146548-003"
 
 # Define trading parameters
 symbol = 'EUR_USD'  # Forex currency pair
 short_period = 10  # Short-term moving average period
 long_period = 30   # Long-term moving average period
-order_size = 1000  # Trade size in the base currency
+order_size = 10000  # Trade size in the base currency
 
 # Function to get historical OHLCV data
 def fetch_ohlcv(symbol, timeframe, count):
@@ -32,7 +32,6 @@ def fetch_ohlcv(symbol, timeframe, count):
     df = pd.DataFrame(ohlcv_data)
     df['time'] = pd.to_datetime(df['time'])
     df = df.set_index('time')
-    print(ohlcv_data)
     return df
 
 # Function to calculate moving averages
@@ -45,12 +44,12 @@ def calculate_moving_averages(df, short_period, long_period):
 def execute_market_order(symbol, side, quantity):
     endpoint = f"/v3/accounts/{account_id}/orders"
     url = f"https://api-fxpractice.oanda.com{endpoint}"
-    
+
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json"
     }
-    
+
     data = {
         "order": {
             "type": "MARKET",
